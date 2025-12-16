@@ -15,21 +15,10 @@ body{
 
 *{ -webkit-tap-highlight-color: transparent; }
 
-/* ANIMACIONES */
 @keyframes haptic{
   0%{transform:scale(1)}
   50%{transform:scale(.96)}
   100%{transform:scale(1)}
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-@keyframes fadeZoom{
-  from{opacity:0;transform:scale(.85)}
-  to{opacity:1;transform:scale(1)}
 }
 
 .card{
@@ -41,12 +30,11 @@ body{
   box-shadow:0 0 40px rgba(0,0,0,.9);
 }
 
-/* LOGO */
+/* LOGO PRINCIPAL */
 .logo{
   display:flex;
   justify-content:center;
   margin-bottom:18px;
-  animation:fadeZoom .6s ease-out both;
 }
 
 .logo-circle{
@@ -69,9 +57,24 @@ body{
 }
 
 /* INFO */
-h1{text-align:center;font-size:22px;margin:10px 0 6px;}
-.info{text-align:center;font-size:14px;color:#ccc;margin-bottom:24px;}
-.copy-text{cursor:pointer;font-weight:600}
+h1{
+  text-align:center;
+  font-size:22px;
+  margin:10px 0 6px;
+}
+
+.info{
+  text-align:center;
+  font-size:14px;
+  color:#ccc;
+  margin-bottom:24px;
+}
+
+.copy-text{
+  cursor:pointer;
+  font-weight:600;
+  color:#fff;
+}
 
 /* BANK */
 .bank{
@@ -80,21 +83,14 @@ h1{text-align:center;font-size:22px;margin:10px 0 6px;}
   padding:16px;
   margin-bottom:16px;
   border:1px solid #242424;
-  opacity:0;
-  animation:fadeUp .5s ease-out forwards;
 }
 
-.bank:nth-of-type(1){animation-delay:.15s}
-.bank:nth-of-type(2){animation-delay:.25s}
-.bank:nth-of-type(3){animation-delay:.35s}
-.bank:nth-of-type(4){animation-delay:.45s}
+.bank.copiado{ animation:haptic .15s }
 
-.bank.copiado{animation:haptic .15s}
-
-.bank.popular.copiado{box-shadow:0 0 26px rgba(0,86,170,.9)}
-.bank.qik.copiado{box-shadow:0 0 26px rgba(0,200,255,.9)}
-.bank.banreservas.copiado{box-shadow:0 0 26px rgba(255,145,0,.9)}
-.bank.apap.copiado{box-shadow:0 0 26px rgba(255,215,80,.9)}
+.bank.popular.copiado{ box-shadow:0 0 26px rgba(0,86,170,.9) }
+.bank.qik.copiado{ box-shadow:0 0 26px rgba(0,200,255,.9) }
+.bank.banreservas.copiado{ box-shadow:0 0 26px rgba(255,145,0,.9) }
+.bank.apap.copiado{ box-shadow:0 0 26px rgba(255,215,80,.9) }
 
 .bank-title{
   display:flex;
@@ -121,19 +117,33 @@ h1{text-align:center;font-size:22px;margin:10px 0 6px;}
   object-fit:cover;
 }
 
-/* AJUSTES FINOS */
-.bank.popular .bank-icon{background:#0a3f7d}
-.bank.popular .bank-icon img{transform:scale(1.05)}
+/* AJUSTES FINOS POR BANCO */
+.bank.popular .bank-icon{ background:#0a3f7d; }
+.bank.popular .bank-icon img{ transform:scale(1.05); }
 
-.bank.qik .bank-icon{background:#fff}
-.bank.qik .bank-icon img{transform:scale(1)}
+.bank.qik .bank-icon{ background:#fff; }
+.bank.qik .bank-icon img{ transform:scale(1.0); }
 
-.bank.banreservas .bank-icon img{transform:scale(1.55)}
-.bank.apap .bank-icon img{transform:scale(1.3)}
+.bank.banreservas .bank-icon img{ transform:scale(1.55); }
+.bank.apap .bank-icon img{ transform:scale(1.3); }
 
-.bank-title span{font-size:16px;font-weight:600}
-.number{font-size:18px;font-weight:700;margin-bottom:10px}
+.bank-title span{
+  font-size:16px;
+  font-weight:600;
+}
 
+/* 🔥 FIX DEFINITIVO NÚMEROS AZULES (iOS) */
+.number,
+.number a,
+.number span{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:10px;
+  color:#fff !important;
+  text-decoration:none !important;
+}
+
+/* BOTÓN */
 button{
   width:100%;
   padding:11px;
@@ -144,7 +154,8 @@ button{
   font-size:15px;
   cursor:pointer;
 }
-button:active{transform:scale(.94)}
+
+button:active{ transform:scale(.94) }
 </style>
 </head>
 

@@ -21,6 +21,22 @@ body{
   100%{transform:scale(1)}
 }
 
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-4px); }
+  30%  { transform: translateX(4px); }
+  45%  { transform: translateX(-3px); }
+  60%  { transform: translateX(3px); }
+  75%  { transform: translateX(-2px); }
+  90%  { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+/* clase que activa la sacudida */
+.bank.shake{
+  animation: shake 0.35s ease;
+}
+
 .card{
   max-width:420px;
   margin:auto;
@@ -218,11 +234,17 @@ button:active{ transform:scale(.94) }
 </div>
 
 <script>
-function copiar(texto,el){
-  if(navigator.vibrate) navigator.vibrate(20);
+function copiar(texto, el){
+  if(navigator.vibrate) navigator.vibrate(25);
   navigator.clipboard.writeText(texto);
+
   el.classList.add("copiado");
-  setTimeout(()=>el.classList.remove("copiado"),1200);
+  el.classList.add("shake");
+
+  setTimeout(()=>{
+    el.classList.remove("copiado");
+    el.classList.remove("shake");
+  },1200);
 }
 </script>
 

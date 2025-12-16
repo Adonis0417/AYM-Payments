@@ -13,6 +13,15 @@ body{
   color:#fff;
 }
 
+a, a:visited, a:hover, a:active{
+  color:#fff !important;
+  text-decoration:none;
+}
+
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+
 .card{
   max-width:420px;
   margin:auto;
@@ -71,6 +80,9 @@ h1{
 .bank.banreservas.copiado{
   box-shadow:0 0 26px rgba(255,145,0,.9);
 }
+.bank.apap.copiado{
+  box-shadow:0 0 26px rgba(255,215,80,.9);
+}
 
 .bank-title{
   display:flex;
@@ -86,14 +98,6 @@ h1{
   object-fit:cover;
 }
 
-/* Popular y Banreservas: logo lleno */
-.bank.popular .bank-title img,
-.bank.banreservas .bank-title img{
-  background:none;
-  padding:0;
-}
-
-/* Qik mantiene fondo */
 .bank.qik .bank-title img{
   background:#fff;
   padding:4px;
@@ -107,8 +111,9 @@ h1{
 .number{
   font-size:18px;
   font-weight:700;
-  color:#fff;
+  color:#fff !important;
   margin-bottom:10px;
+  letter-spacing:.5px;
 }
 
 button{
@@ -142,8 +147,8 @@ button:active{
   <div class="info">
     <strong>Adonys Ureña Sánchez</strong><br>
     Cédula:
-    <span class="copy-text" onclick="copiar('40230729457', this.closest('.card'))">
-      40223126968  📋
+    <span class="copy-text" onclick="copiar('40223126968', this.closest('.card'))">
+      40223126968 📋
     </span>
   </div>
 
@@ -153,9 +158,7 @@ button:active{
       <span>Banco Popular</span>
     </div>
     <div class="number">785242512</div>
-    <button onclick="copiar('813665445', this.closest('.bank'))">
-      Copiar cuenta
-    </button>
+    <button onclick="copiar('813665445', this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
   <div class="bank qik">
@@ -164,9 +167,7 @@ button:active{
       <span>Qik Digital</span>
     </div>
     <div class="number">1008613083</div>
-    <button onclick="copiar('1000536958', this.closest('.bank'))">
-      Copiar cuenta
-    </button>
+    <button onclick="copiar('1000536958', this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
   <div class="bank banreservas">
@@ -175,15 +176,28 @@ button:active{
       <span>Banreservas</span>
     </div>
     <div class="number">9604018382</div>
-    <button onclick="copiar('9608844071', this.closest('.bank'))">
-      Copiar cuenta
-    </button>
+    <button onclick="copiar('9608844071', this.closest('.bank'))">Copiar cuenta</button>
+  </div>
+
+  <!-- APAP -->
+  <div class="bank apap">
+    <div class="bank-title">
+      <img src="apap.png">
+      <span>APAP</span>
+    </div>
+    <div class="number">1033521752</div>
+    <button onclick="copiar('1033521752', this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
 </div>
 
 <script>
 function copiar(texto, elemento){
+
+  if (navigator.vibrate) {
+    navigator.vibrate(20);
+  }
+
   navigator.clipboard.writeText(texto);
 
   if(elemento.classList){

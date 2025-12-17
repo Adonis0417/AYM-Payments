@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Pagos | Adonys Ureña Sánchez</title>
+
+<!-- 🔥 BLOQUEA NÚMEROS AZULES EN iOS -->
+<meta name="format-detection" content="telephone=no">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -15,7 +19,7 @@ body{
 
 *{ -webkit-tap-highlight-color: transparent; }
 
-/* ================= ANIMACIONES ================= */
+/* ================= ANIMACIÓN ENTRADA ================= */
 
 @keyframes introBank {
   0%   { transform: translateX(0) scale(1); opacity:0; }
@@ -75,10 +79,13 @@ body{
 h1{text-align:center;font-size:22px;margin:10px 0 6px;}
 .info{text-align:center;font-size:14px;color:#ccc;margin-bottom:24px;}
 
-.copy-text{
+/* 🔥 CÉDULA BLANCA SIEMPRE */
+.copy-text,
+.copy-text a{
   cursor:pointer;
   font-weight:600;
   color:#fff !important;
+  text-decoration:none !important;
 }
 
 /* ================= BANK ================= */
@@ -90,10 +97,10 @@ h1{text-align:center;font-size:22px;margin:10px 0 6px;}
   margin-bottom:16px;
   border:1px solid #242424;
   opacity:0;
-  transition: box-shadow .3s ease;
+  transition:box-shadow .3s ease;
 }
 
-/* glow SOLO al copiar */
+/* glow al copiar */
 .bank.popular.copiado{ box-shadow:0 0 26px rgba(0,86,170,.9) }
 .bank.qik.copiado{ box-shadow:0 0 26px rgba(0,200,255,.9) }
 .bank.banreservas.copiado{ box-shadow:0 0 26px rgba(255,145,0,.9) }
@@ -132,12 +139,15 @@ h1{text-align:center;font-size:22px;margin:10px 0 6px;}
 
 .bank-title span{font-size:16px;font-weight:600}
 
-/* FIX iOS */
-.number{
+/* 🔥 FIX DEFINITIVO CUENTAS (iOS) */
+.number,
+.number a,
+.number span{
   font-size:18px;
   font-weight:700;
   margin-bottom:10px;
   color:#fff !important;
+  text-decoration:none !important;
 }
 
 /* BOTÓN */
@@ -214,7 +224,6 @@ button:active{transform:scale(.94)}
 </div>
 
 <script>
-/* animación al entrar */
 window.addEventListener("load",()=>{
   document.querySelectorAll(".bank").forEach((bank,i)=>{
     setTimeout(()=>bank.classList.add("intro"), i*140);
@@ -224,7 +233,6 @@ window.addEventListener("load",()=>{
 function copiar(texto,el){
   if(navigator.vibrate) navigator.vibrate(25);
   navigator.clipboard.writeText(texto);
-
   el.classList.add("copiado");
   setTimeout(()=>el.classList.remove("copiado"),700);
 }

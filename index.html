@@ -6,10 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ================= FUENTE SF PRO STYLE ================= */
 body{
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",
+               "Segoe UI",Roboto,Arial,sans-serif;
   background:radial-gradient(circle at top,#111 0%,#000 65%);
   padding:30px 15px;
   color:#fff;
@@ -19,21 +18,22 @@ body{
 
 /* ================= ANIMACIONES ================= */
 
-@keyframes introBank {
-  0%   { transform: translateX(0) scale(1); opacity:0; }
-  20%  { transform: translateX(-8px); }
-  40%  { transform: translateX(8px); }
-  60%  { transform: translateX(-5px); }
-  80%  { transform: translateX(5px) scale(1.05); }
-  100% { transform: translateX(0) scale(1); opacity:1; }
+@keyframes introBank{
+  0%{opacity:0;transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+  100%{opacity:1;transform:translateX(0)}
 }
 
-@keyframes copyShake {
-  0%   { transform: translateX(0) scale(1); }
-  25%  { transform: translateX(-6px); }
-  50%  { transform: translateX(6px); }
-  75%  { transform: translateX(-4px); }
-  100% { transform: translateX(0) scale(1); }
+@keyframes copyShake{
+  0%{transform:translateX(0)}
+  20%{transform:translateX(-6px)}
+  40%{transform:translateX(6px)}
+  60%{transform:translateX(-4px)}
+  80%{transform:translateX(4px)}
+  100%{transform:translateX(0)}
 }
 
 /* ================= CARD ================= */
@@ -47,7 +47,7 @@ body{
   box-shadow:0 0 40px rgba(0,0,0,.9);
 }
 
-/* ================= LOGO ================= */
+/* ================= LOGO PRINCIPAL ================= */
 
 .logo{
   display:flex;
@@ -56,8 +56,7 @@ body{
 }
 
 .logo-circle{
-  width:110px;
-  height:110px;
+  width:110px;height:110px;
   border-radius:50%;
   border:2px solid #fff;
   box-shadow:0 0 18px rgba(255,255,255,.4);
@@ -68,76 +67,52 @@ body{
 }
 
 .logo-circle img{
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   object-fit:cover;
   transform:scale(1.3);
 }
 
 /* ================= INFO ================= */
 
-h1{
-  text-align:center;
-  font-size:22px;
-  margin:10px 0 6px;
-}
+h1{text-align:center;font-size:22px;margin:10px 0 6px}
+.info{text-align:center;font-size:14px;color:#ccc;margin-bottom:26px}
+.copy-text{color:#fff;font-weight:600;cursor:pointer}
 
-.info{
-  text-align:center;
-  font-size:14px;
-  color:#ccc;
-  margin-bottom:24px;
-}
-
-.copy-text{
-  cursor:pointer;
-  font-weight:600;
-  color:#fff;
-}
-
-/* ================= BANK ================= */
+/* ================= BANK CARD ================= */
 
 .bank{
   background:linear-gradient(145deg,#161616,#0f0f0f);
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:16px;
+  border-radius:20px;
+  padding:22px 16px;
+  margin-bottom:18px;
   border:1px solid #242424;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
   opacity:0;
 }
 
-.bank.intro{
-  animation:introBank .6s ease forwards;
-}
-
-.bank.copiado{
-  animation:copyShake .25s ease;
-}
+.bank.intro{ animation:introBank .6s ease forwards }
+.bank.copiado{ animation:copyShake .28s ease }
 
 /* Glow por banco */
-.bank.popular.copiado{ box-shadow:0 0 26px rgba(0,86,170,.9) }
-.bank.qik.copiado{ box-shadow:0 0 26px rgba(0,200,255,.9) }
-.bank.banreservas.copiado{ box-shadow:0 0 26px rgba(255,145,0,.9) }
-.bank.apap.copiado{ box-shadow:0 0 26px rgba(255,215,80,.9) }
+.bank.popular.copiado{ box-shadow:0 0 28px rgba(0,86,170,.9) }
+.bank.qik.copiado{ box-shadow:0 0 28px rgba(0,200,255,.9) }
+.bank.banreservas.copiado{ box-shadow:0 0 28px rgba(255,145,0,.9) }
+.bank.apap.copiado{ box-shadow:0 0 28px rgba(255,215,80,.9) }
 
-/* ================= BANK TITLE ================= */
-
-.bank-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:6px;
-}
+/* ================= LOGO BANCO GRANDE ================= */
 
 .bank-icon{
-  width:42px;
-  height:42px;
+  width:64px;
+  height:64px;
   border-radius:50%;
   overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
 }
 
 .bank-icon img{
@@ -146,36 +121,17 @@ h1{
   object-fit:cover;
 }
 
-/* Ajustes por banco */
-.bank.popular .bank-icon{ background:#0a3f7d; }
-.bank.popular .bank-icon img{ transform:scale(1.05); }
+/* Ajustes individuales */
+.bank.popular .bank-icon{ background:#0a3f7d }
+.bank.qik .bank-icon{ background:#fff }
+.bank.banreservas .bank-icon img{ transform:scale(1.5) }
+.bank.apap .bank-icon img{ transform:scale(1.3) }
 
-.bank.qik .bank-icon{ background:#fff; }
-.bank.banreservas .bank-icon img{ transform:scale(1.55); }
-.bank.apap .bank-icon img{ transform:scale(1.3); }
-
-.bank-title span{
-  font-size:16px;
-  font-weight:600;
-}
-
-/* ================= NÚMEROS (ANTI AZUL iOS) ================= */
-
-.number,
-.number a,
-.number span{
-  font-size:18px;
-  font-weight:700;
-  margin-bottom:10px;
-  color:#fff !important;
-  text-decoration:none !important;
-}
-
-/* ================= BOTÓN NARANJA ================= */
+/* ================= BOTÓN ================= */
 
 button{
   width:100%;
-  padding:11px;
+  padding:12px;
   border:none;
   border-radius:14px;
   background:linear-gradient(135deg,#ff9f1c,#ff7a00);
@@ -185,7 +141,7 @@ button{
   cursor:pointer;
 }
 
-button:active{ transform:scale(.94); }
+button:active{ transform:scale(.95) }
 </style>
 </head>
 
@@ -204,61 +160,46 @@ button:active{ transform:scale(.94); }
   <div class="info">
     <strong>Adonys Ureña Sánchez</strong><br>
     Cédula:
-    <span class="copy-text" onclick="copiar('40223126968', this.closest('.card'))">
+    <span class="copy-text" onclick="copiar('40223126968',this.closest('.card'))">
       40223126968
     </span>
   </div>
 
   <div class="bank popular">
-    <div class="bank-title">
-      <div class="bank-icon"><img src="popular.png"></div>
-      <span>Banco Popular</span>
-    </div>
-    <div class="number">785242512</div>
-    <button onclick="copiar('813665445', this.closest('.bank'))">Copiar cuenta</button>
+    <div class="bank-icon"><img src="popular.png"></div>
+    <button onclick="copiar('813665445',this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
   <div class="bank qik">
-    <div class="bank-title">
-      <div class="bank-icon"><img src="qik.png"></div>
-      <span>Qik Digital</span>
-    </div>
-    <div class="number">1008613083</div>
-    <button onclick="copiar('1000536958', this.closest('.bank'))">Copiar cuenta</button>
+    <div class="bank-icon"><img src="qik.png"></div>
+    <button onclick="copiar('1000536958',this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
   <div class="bank banreservas">
-    <div class="bank-title">
-      <div class="bank-icon"><img src="banreservas.png"></div>
-      <span>Banreservas</span>
-    </div>
-    <div class="number">9604018382</div>
-    <button onclick="copiar('9608844071', this.closest('.bank'))">Copiar cuenta</button>
+    <div class="bank-icon"><img src="banreservas.png"></div>
+    <button onclick="copiar('9608844071',this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
   <div class="bank apap">
-    <div class="bank-title">
-      <div class="bank-icon"><img src="apap.png"></div>
-      <span>APAP</span>
-    </div>
-    <div class="number">1033521752</div>
-    <button onclick="copiar('1033521752', this.closest('.bank'))">Copiar cuenta</button>
+    <div class="bank-icon"><img src="apap.png"></div>
+    <button onclick="copiar('1033521752',this.closest('.bank'))">Copiar cuenta</button>
   </div>
 
 </div>
 
 <script>
-/* Animación de entrada */
 window.addEventListener("load",()=>{
-  document.querySelectorAll(".bank").forEach((bank,i)=>{
-    setTimeout(()=>bank.classList.add("intro"), i*120);
+  document.querySelectorAll(".bank").forEach((b,i)=>{
+    setTimeout(()=>b.classList.add("intro"), i*120);
   });
 });
 
 function copiar(texto, el){
   navigator.clipboard.writeText(texto);
+  el.classList.remove("copiado");
+  void el.offsetWidth;
   el.classList.add("copiado");
-  setTimeout(()=>el.classList.remove("copiado"), 400);
+  setTimeout(()=>el.classList.remove("copiado"),300);
 }
 </script>
 

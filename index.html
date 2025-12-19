@@ -72,14 +72,16 @@ h1{
   margin-bottom:26px;
 }
 
-/* MANTENER NÚMEROS AZULES */
+/* ===== CÉDULA ANTI AZUL iOS ===== */
 .copy-text,
-.copy-text a,
 .copy-text span{
-  color:#4da3ff !important;
+  color:#aaa !important;
   font-weight:600;
   text-decoration:none !important;
   cursor:pointer;
+}
+.copy-text *{
+  color:#aaa !important;
 }
 
 /* ================= BANK ================= */
@@ -93,8 +95,23 @@ h1{
   align-items:center;
   gap:16px;
 }
+
 .bank.copiado{
   animation:copyShake .28s ease;
+}
+
+/* ===== GLOW POR BANCO (RESTAURADO) ===== */
+.bank.popular.copiado{
+  box-shadow:0 0 26px rgba(0,86,170,.9);
+}
+.bank.qik.copiado{
+  box-shadow:0 0 26px rgba(0,200,255,.9);
+}
+.bank.banreservas.copiado{
+  box-shadow:0 0 26px rgba(255,145,0,.9);
+}
+.bank.apap.copiado{
+  box-shadow:0 0 26px rgba(255,215,80,.9);
 }
 
 /* ================= ICONOS ================= */
@@ -214,7 +231,6 @@ h1{
     </button>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer-text">
     🔒 Transfiere rápido y seguro con un solo toque
   </div>
@@ -225,7 +241,7 @@ h1{
 function copiar(texto, el, banco){
   navigator.clipboard.writeText(texto);
 
-  /* vibración intacta */
+  /* vibración + glow */
   el.classList.remove("copiado");
   void el.offsetWidth;
   el.classList.add("copiado");
@@ -250,9 +266,9 @@ function copiar(texto, el, banco){
 }
 
 function mostrarToast(texto){
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.innerText = texto;
+  const toast=document.createElement("div");
+  toast.className="toast";
+  toast.innerText=texto;
   document.body.appendChild(toast);
   setTimeout(()=>toast.classList.add("show"),10);
   setTimeout(()=>{

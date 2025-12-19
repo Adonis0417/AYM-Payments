@@ -251,17 +251,17 @@ function copiar(texto, el, banco){
   let mensaje = "Cuenta copiada. ";
 
   if(banco === "popular"){
-    mensaje += "Abriendo tu banco para realizar el pago.";
+    mensaje += "¡Copiado!";
     mostrarToast(mensaje);
     setTimeout(()=>window.location.href="popular://",500);
   }
   else if(banco === "qik"){
-    mensaje += "Abriendo tu banco para realizar el pago.";
+    mensaje += "¡Copiado!";
     mostrarToast(mensaje);
     setTimeout(()=>window.location.href="qik://",500);
   }
   else{
-    mensaje += "Abre tu banco para realizar el pago.";
+    mensaje += "¡Copiado!";
     mostrarToast(mensaje);
   }
 }
